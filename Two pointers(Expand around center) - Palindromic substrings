@@ -1,0 +1,27 @@
+class Solution(object):
+    def palindromic_substring(self, n):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        count=0
+        for i in range(len(n)):
+            print('odd')
+            count+=self.expand(n,i,i)
+            print('even')
+            count+=self.expand(n,i,i+1)
+        return count
+        
+    def expand(self,n,l,r):
+        count=0
+        while l>=0 and r<len(n) and n[l]==n[r]:
+            print(n[l],n[r],l,r)
+            count+=1
+            l-=1
+            r+=1
+        return count
+        
+obj = Solution()
+s = "aaa"
+print(s)
+print(obj.palindromic_substring(s))  
